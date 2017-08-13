@@ -1,0 +1,6 @@
+syntax = "proto3";
+
+message Index {
+  repeated uint64 parts = 1;
+}
+

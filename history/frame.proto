@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package ProtobufHistory;
+
+import "history/action.proto";
+
+message HistoryFrame {
+  uint64 depth = 1;
+  int64 timestamp = 2;
+  HistoryFrameLabel label = 3;
+
+  // Linked list
+  repeated HistoryFrame next = 4;
+
+  repeated DocAction actions = 5;
+}
+
+// We serialize all of the potential frame labels
+// as ints to save space and allow for future i18n
+enum HistoryFrameLabel {
+  DEFAULT = 0;
+  // Boolean operations
+  BOOLEAN_UNITE = 1;
+  BOOLEAN_SUBTRACT = 2;
+  BOOLEAN_INTERSECT = 3;
+
+  // Pen operations
+  ADD_POINT = 4;
+  REMOVE_POINT = 5;
+}

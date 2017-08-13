@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+enum Handle {
+  UNKNOWN = 0;
+  P_HANDLE = 1;
+  S_HANDLE = 2;
+}
+
+message Posn {
+  double x = 1;
+  double y = 2;
+}
+
+message PathPoint {
+  Posn base = 1;
+  Posn pHandle = 2;
+  Posn sHandle = 3;
+}

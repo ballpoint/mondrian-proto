@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package ProtobufHistory;
+
+import "history/frame.proto";
+
+message DocHistory {
+  HistoryFrame initial = 1;
+}
+
+

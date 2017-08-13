@@ -1,0 +1,68 @@
+syntax = "proto3";
+
+package ProtobufHistory;
+
+import "geometry/index.proto";
+import "geometry/posn.proto";
+import "geometry/item.proto";
+
+message DocAction {
+  oneof action {
+    InitAction initAction = 1;
+    NudgeAction nudgeAction = 2;
+    ScaleAction scaleAction = 3;
+    RotateAction rotateAction = 4;
+  }
+}
+
+
+message InitAction {
+  // TODO
+}
+
+message NudgeAction {
+  repeated Index indexes = 1;
+  double xd = 2;
+  double yd = 3;
+}
+
+message ScaleAction {
+  repeated Index indexes = 1;
+  double xs = 2;
+  double ys = 3;
+  Posn origin = 4;
+}
+
+message RotateAction {
+  repeated Index indexes = 1;
+  double angle = 2;
+  Posn origin = 3;
+}
+
+message NudgeHandleAction {
+  repeated Index indexes = 1;
+  double xd = 2;
+  double yd = 3;
+  Handle handle = 4;
+}
+
+message AddHandleAction {
+  repeated Index indexes = 1;
+  Handle handle = 2;
+  Posn posn = 3;
+  bool reflect = 4;
+}
+
+message RemoveHandleAction {
+  repeated Index indexes = 1;
+  Handle handle = 2;
+  bool reflect = 3;
+}
+
+message InsertAction {
+  message ItemIndex {
+    Item item = 1;
+    Index index = 2;
+  }
+  repeated ItemIndex items = 1;
+}
