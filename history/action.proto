@@ -17,6 +17,8 @@ message DocAction {
     RemoveHandleAction removeHandleAction = 7;
     InsertAction insertAction = 8;
     RemoveAction removeAction = 9;
+    GroupAction groupAction = 10;
+    UngroupAction ungroupAction = 11;
   }
 }
 
@@ -79,3 +81,14 @@ message RemoveAction {
   }
   repeated ItemIndex items = 1;
 }
+
+message GroupAction {
+  repeated Index childIndexes = 1;
+  Index groupIndex = 2;
+}
+
+message UngroupAction {
+  repeated Index childIndexes = 1;
+  Index groupIndex = 2;
+}
+
