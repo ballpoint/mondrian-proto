@@ -4,7 +4,12 @@ package ProtobufHistory;
 
 import "geometry/index.proto";
 import "geometry/posn.proto";
+import "geometry/path.proto";
 
 message Item {
+  oneof item {
+    Path path = 1;
+  }
 
+  // TODO add colors, stroke, etc
 }

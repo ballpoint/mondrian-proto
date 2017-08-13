@@ -12,6 +12,11 @@ message DocAction {
     NudgeAction nudgeAction = 2;
     ScaleAction scaleAction = 3;
     RotateAction rotateAction = 4;
+    NudgeHandleAction nudgeHandleAction = 5;
+    AddHandleAction addHandleAction = 6;
+    RemoveHandleAction removeHandleAction = 7;
+    InsertAction insertAction = 8;
+    RemoveAction removeAction = 9;
   }
 }
 
@@ -60,6 +65,14 @@ message RemoveHandleAction {
 }
 
 message InsertAction {
+  message ItemIndex {
+    Item item = 1;
+    Index index = 2;
+  }
+  repeated ItemIndex items = 1;
+}
+
+message RemoveAction {
   message ItemIndex {
     Item item = 1;
     Index index = 2;

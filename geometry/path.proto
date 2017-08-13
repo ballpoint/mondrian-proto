@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package ProtobufHistory;
+
+import "geometry/index.proto";
+import "geometry/posn.proto";
+
+message Path {
+}

@@ -10,4 +10,4 @@ $(eval SHA := $(shell git rev-parse HEAD))
 all: proto
 
 proto:
-	protoc --go_out=Mhistory/history.proto=github.com/nicelegs/mondrian-proto/history:. history/*.proto
+	protoc --js_out=import_style=commonjs:. history/*.proto
