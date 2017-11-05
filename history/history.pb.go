@@ -2,7 +2,7 @@
 // source: history/history.proto
 // DO NOT EDIT!
 
-package ProtobufHistory
+package history
 
 import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
@@ -30,7 +30,7 @@ func (m *DocHistory) GetInitial() *HistoryFrame {
 }
 
 func init() {
-	proto.RegisterType((*DocHistory)(nil), "ProtobufHistory.DocHistory")
+	proto.RegisterType((*DocHistory)(nil), "history.DocHistory")
 }
 
 func init() { proto.RegisterFile("history/history.proto", fileDescriptor2) }

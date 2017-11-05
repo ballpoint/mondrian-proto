@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package ProtobufHistory;
+package history;
 
 import "history/action.proto";
 
@@ -27,4 +27,8 @@ enum HistoryFrameLabel {
   // Pen operations
   ADD_POINT = 4;
   REMOVE_POINT = 5;
+
+  // Align
+  ALIGN_TO_SELECTION = 6;
+  ALIGN_TO_DOCUMENT = 7;
 }

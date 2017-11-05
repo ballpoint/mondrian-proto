@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+package document;
+
 message Index {
   repeated uint64 parts = 1;
 }

@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package document;
+
+message Layer {
+  string id = 1;
+  repeated Item children = 2;
+}
+
+

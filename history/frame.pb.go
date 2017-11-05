@@ -2,7 +2,7 @@
 // source: history/frame.proto
 // DO NOT EDIT!
 
-package ProtobufHistory
+package history
 
 import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
@@ -53,7 +53,7 @@ func (HistoryFrameLabel) EnumDescriptor() ([]byte, []int) { return fileDescripto
 type HistoryFrame struct {
 	Depth     uint64            `protobuf:"varint,1,opt,name=depth" json:"depth,omitempty"`
 	Timestamp int64             `protobuf:"varint,2,opt,name=timestamp" json:"timestamp,omitempty"`
-	Label     HistoryFrameLabel `protobuf:"varint,3,opt,name=label,enum=ProtobufHistory.HistoryFrameLabel" json:"label,omitempty"`
+	Label     HistoryFrameLabel `protobuf:"varint,3,opt,name=label,enum=history.HistoryFrameLabel" json:"label,omitempty"`
 	// Linked list
 	Next    []*HistoryFrame `protobuf:"bytes,4,rep,name=next" json:"next,omitempty"`
 	Actions []*DocAction    `protobuf:"bytes,5,rep,name=actions" json:"actions,omitempty"`
@@ -100,8 +100,8 @@ func (m *HistoryFrame) GetActions() []*DocAction {
 }
 
 func init() {
-	proto.RegisterType((*HistoryFrame)(nil), "ProtobufHistory.HistoryFrame")
-	proto.RegisterEnum("ProtobufHistory.HistoryFrameLabel", HistoryFrameLabel_name, HistoryFrameLabel_value)
+	proto.RegisterType((*HistoryFrame)(nil), "history.HistoryFrame")
+	proto.RegisterEnum("history.HistoryFrameLabel", HistoryFrameLabel_name, HistoryFrameLabel_value)
 }
 
 func init() { proto.RegisterFile("history/frame.proto", fileDescriptor1) }

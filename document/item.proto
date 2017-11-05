@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package document;
+
+message Item {
+  oneof item {
+    PathItem pathItem = 1;
+    TextItem textItem = 2;
+    GroupItem groupItem = 3;
+  }
+}
+
+message PathItem {
+  StyleAttrs style = 1;
+  repeated PointsSegment points = 2;
+}
+
+message TextItem {
+  StyleAttrs style = 1;
+}
+
+message GroupItem {
+  repeated Item children = 1;
+}
+

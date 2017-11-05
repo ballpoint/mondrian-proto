@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package ProtobufHistory;
+package history;
 
 import "geometry/index.proto";
 import "geometry/posn.proto";

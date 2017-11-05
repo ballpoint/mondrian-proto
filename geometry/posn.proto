@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+package geometry;
+
 enum Handle {
   UNKNOWN = 0;
   P_HANDLE = 1;
@@ -15,4 +17,9 @@ message PathPoint {
   Posn base = 1;
   Posn pHandle = 2;
   Posn sHandle = 3;
+}
+
+message PointsSegment {
+  repeated PathPoint points = 1;
+  bool closed = 2;
 }

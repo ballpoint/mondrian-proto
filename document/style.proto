@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package document;
+
+message Color {
+  int32 r = 1;
+  int32 g = 2;
+  int32 b = 3;
+  float a = 4;
+
+  bool none = 5; // Set to true to return "none"; ignores other values
+}
+
+enum StrokeLineCap {
+  butt   = 0;
+  square = 1;
+  round  = 2;
+}
+
+enum StrokeLineJoin {
+  miter = 0;
+  bevel = 1;
+  round = 2;
+}
+
+message StyleAttrs {
+  Color fill = 1;
+  Color stroke = 2;
+
+  StrokeLineCap strokeLineCap = 3;
+  StrokeLineJoin strokeLineJoin = 4;
+
+  double opacity = 5;
+}
+

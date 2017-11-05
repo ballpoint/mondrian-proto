@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package document;
+
+enum DocumentStore {
+  Unknown = 0;
+  Local = 1;
+  // Leaving space for services like Dropbox as well as Mondrian account storage
+}
+
+message DocumentLocation {
+  DocumentStore store = 1;
+  string path = 2;
+}
+
+message Document {
+  string id = 1; // UUID
+
+  DocumentLocation location = 2;
+
+  double width = 3;
+  double height = 4;
+
+  repeated Layer layers = 5;
+}
+

@@ -1,0 +1,564 @@
+{
+  "nested": {
+    "document": {
+      "nested": {
+        "DocumentStore": {
+          "values": {
+            "Unknown": 0,
+            "Local": 1
+          }
+        },
+        "DocumentLocation": {
+          "fields": {
+            "store": {
+              "type": "DocumentStore",
+              "id": 1
+            },
+            "path": {
+              "type": "string",
+              "id": 2
+            }
+          }
+        },
+        "Document": {
+          "fields": {
+            "id": {
+              "type": "string",
+              "id": 1
+            },
+            "location": {
+              "type": "DocumentLocation",
+              "id": 2
+            },
+            "width": {
+              "type": "double",
+              "id": 3
+            },
+            "height": {
+              "type": "double",
+              "id": 4
+            },
+            "layers": {
+              "rule": "repeated",
+              "type": "Layer",
+              "id": 5
+            }
+          }
+        },
+        "Index": {
+          "fields": {
+            "parts": {
+              "rule": "repeated",
+              "type": "uint64",
+              "id": 1
+            }
+          }
+        },
+        "Item": {
+          "oneofs": {
+            "item": {
+              "oneof": [
+                "pathItem",
+                "textItem",
+                "groupItem"
+              ]
+            }
+          },
+          "fields": {
+            "pathItem": {
+              "type": "PathItem",
+              "id": 1
+            },
+            "textItem": {
+              "type": "TextItem",
+              "id": 2
+            },
+            "groupItem": {
+              "type": "GroupItem",
+              "id": 3
+            }
+          }
+        },
+        "PathItem": {
+          "fields": {
+            "style": {
+              "type": "StyleAttrs",
+              "id": 1
+            },
+            "points": {
+              "rule": "repeated",
+              "type": "PointsSegment",
+              "id": 2
+            }
+          }
+        },
+        "TextItem": {
+          "fields": {
+            "style": {
+              "type": "StyleAttrs",
+              "id": 1
+            }
+          }
+        },
+        "GroupItem": {
+          "fields": {
+            "children": {
+              "rule": "repeated",
+              "type": "Item",
+              "id": 1
+            }
+          }
+        },
+        "Layer": {
+          "fields": {
+            "id": {
+              "type": "string",
+              "id": 1
+            },
+            "children": {
+              "rule": "repeated",
+              "type": "Item",
+              "id": 2
+            }
+          }
+        },
+        "Color": {
+          "fields": {
+            "r": {
+              "type": "int32",
+              "id": 1
+            },
+            "g": {
+              "type": "int32",
+              "id": 2
+            },
+            "b": {
+              "type": "int32",
+              "id": 3
+            },
+            "a": {
+              "type": "float",
+              "id": 4
+            },
+            "none": {
+              "type": "bool",
+              "id": 5
+            }
+          }
+        },
+        "StrokeLineCap": {
+          "values": {
+            "butt": 0,
+            "square": 1,
+            "round": 2
+          }
+        },
+        "StrokeLineJoin": {
+          "values": {
+            "miter": 0,
+            "bevel": 1,
+            "round": 2
+          }
+        },
+        "StyleAttrs": {
+          "fields": {
+            "fill": {
+              "type": "Color",
+              "id": 1
+            },
+            "stroke": {
+              "type": "Color",
+              "id": 2
+            },
+            "strokeLineCap": {
+              "type": "StrokeLineCap",
+              "id": 3
+            },
+            "strokeLineJoin": {
+              "type": "StrokeLineJoin",
+              "id": 4
+            },
+            "opacity": {
+              "type": "double",
+              "id": 5
+            }
+          }
+        }
+      }
+    },
+    "geometry": {
+      "nested": {
+        "Item": {
+          "oneofs": {
+            "item": {
+              "oneof": [
+                "path"
+              ]
+            }
+          },
+          "fields": {
+            "path": {
+              "type": "Path",
+              "id": 1
+            }
+          }
+        },
+        "Path": {
+          "fields": {}
+        },
+        "Handle": {
+          "values": {
+            "UNKNOWN": 0,
+            "P_HANDLE": 1,
+            "S_HANDLE": 2
+          }
+        },
+        "Posn": {
+          "fields": {
+            "x": {
+              "type": "double",
+              "id": 1
+            },
+            "y": {
+              "type": "double",
+              "id": 2
+            }
+          }
+        },
+        "PathPoint": {
+          "fields": {
+            "base": {
+              "type": "Posn",
+              "id": 1
+            },
+            "pHandle": {
+              "type": "Posn",
+              "id": 2
+            },
+            "sHandle": {
+              "type": "Posn",
+              "id": 3
+            }
+          }
+        },
+        "PointsSegment": {
+          "fields": {
+            "points": {
+              "rule": "repeated",
+              "type": "PathPoint",
+              "id": 1
+            },
+            "closed": {
+              "type": "bool",
+              "id": 2
+            }
+          }
+        }
+      }
+    },
+    "history": {
+      "nested": {
+        "DocAction": {
+          "oneofs": {
+            "action": {
+              "oneof": [
+                "initAction",
+                "nudgeAction",
+                "scaleAction",
+                "rotateAction",
+                "nudgeHandleAction",
+                "addHandleAction",
+                "removeHandleAction",
+                "insertAction",
+                "removeAction",
+                "groupAction",
+                "ungroupAction"
+              ]
+            }
+          },
+          "fields": {
+            "initAction": {
+              "type": "InitAction",
+              "id": 1
+            },
+            "nudgeAction": {
+              "type": "NudgeAction",
+              "id": 2
+            },
+            "scaleAction": {
+              "type": "ScaleAction",
+              "id": 3
+            },
+            "rotateAction": {
+              "type": "RotateAction",
+              "id": 4
+            },
+            "nudgeHandleAction": {
+              "type": "NudgeHandleAction",
+              "id": 5
+            },
+            "addHandleAction": {
+              "type": "AddHandleAction",
+              "id": 6
+            },
+            "removeHandleAction": {
+              "type": "RemoveHandleAction",
+              "id": 7
+            },
+            "insertAction": {
+              "type": "InsertAction",
+              "id": 8
+            },
+            "removeAction": {
+              "type": "RemoveAction",
+              "id": 9
+            },
+            "groupAction": {
+              "type": "GroupAction",
+              "id": 10
+            },
+            "ungroupAction": {
+              "type": "UngroupAction",
+              "id": 11
+            }
+          }
+        },
+        "InitAction": {
+          "fields": {}
+        },
+        "NudgeAction": {
+          "fields": {
+            "indexes": {
+              "rule": "repeated",
+              "type": "Index",
+              "id": 1
+            },
+            "xd": {
+              "type": "double",
+              "id": 2
+            },
+            "yd": {
+              "type": "double",
+              "id": 3
+            }
+          }
+        },
+        "ScaleAction": {
+          "fields": {
+            "indexes": {
+              "rule": "repeated",
+              "type": "Index",
+              "id": 1
+            },
+            "xs": {
+              "type": "double",
+              "id": 2
+            },
+            "ys": {
+              "type": "double",
+              "id": 3
+            },
+            "origin": {
+              "type": "Posn",
+              "id": 4
+            }
+          }
+        },
+        "RotateAction": {
+          "fields": {
+            "indexes": {
+              "rule": "repeated",
+              "type": "Index",
+              "id": 1
+            },
+            "angle": {
+              "type": "double",
+              "id": 2
+            },
+            "origin": {
+              "type": "Posn",
+              "id": 3
+            }
+          }
+        },
+        "NudgeHandleAction": {
+          "fields": {
+            "indexes": {
+              "rule": "repeated",
+              "type": "Index",
+              "id": 1
+            },
+            "xd": {
+              "type": "double",
+              "id": 2
+            },
+            "yd": {
+              "type": "double",
+              "id": 3
+            },
+            "handle": {
+              "type": "Handle",
+              "id": 4
+            }
+          }
+        },
+        "AddHandleAction": {
+          "fields": {
+            "indexes": {
+              "rule": "repeated",
+              "type": "Index",
+              "id": 1
+            },
+            "handle": {
+              "type": "Handle",
+              "id": 2
+            },
+            "posn": {
+              "type": "Posn",
+              "id": 3
+            },
+            "reflect": {
+              "type": "bool",
+              "id": 4
+            }
+          }
+        },
+        "RemoveHandleAction": {
+          "fields": {
+            "indexes": {
+              "rule": "repeated",
+              "type": "Index",
+              "id": 1
+            },
+            "handle": {
+              "type": "Handle",
+              "id": 2
+            },
+            "reflect": {
+              "type": "bool",
+              "id": 3
+            }
+          }
+        },
+        "InsertAction": {
+          "fields": {
+            "items": {
+              "rule": "repeated",
+              "type": "ItemIndex",
+              "id": 1
+            }
+          },
+          "nested": {
+            "ItemIndex": {
+              "fields": {
+                "item": {
+                  "type": "Item",
+                  "id": 1
+                },
+                "index": {
+                  "type": "Index",
+                  "id": 2
+                }
+              }
+            }
+          }
+        },
+        "RemoveAction": {
+          "fields": {
+            "items": {
+              "rule": "repeated",
+              "type": "ItemIndex",
+              "id": 1
+            }
+          },
+          "nested": {
+            "ItemIndex": {
+              "fields": {
+                "item": {
+                  "type": "Item",
+                  "id": 1
+                },
+                "index": {
+                  "type": "Index",
+                  "id": 2
+                }
+              }
+            }
+          }
+        },
+        "GroupAction": {
+          "fields": {
+            "childIndexes": {
+              "rule": "repeated",
+              "type": "Index",
+              "id": 1
+            },
+            "groupIndex": {
+              "type": "Index",
+              "id": 2
+            }
+          }
+        },
+        "UngroupAction": {
+          "fields": {
+            "childIndexes": {
+              "rule": "repeated",
+              "type": "Index",
+              "id": 1
+            },
+            "groupIndex": {
+              "type": "Index",
+              "id": 2
+            }
+          }
+        },
+        "HistoryFrame": {
+          "fields": {
+            "depth": {
+              "type": "uint64",
+              "id": 1
+            },
+            "timestamp": {
+              "type": "int64",
+              "id": 2
+            },
+            "label": {
+              "type": "HistoryFrameLabel",
+              "id": 3
+            },
+            "next": {
+              "rule": "repeated",
+              "type": "HistoryFrame",
+              "id": 4
+            },
+            "actions": {
+              "rule": "repeated",
+              "type": "DocAction",
+              "id": 5
+            }
+          }
+        },
+        "HistoryFrameLabel": {
+          "values": {
+            "DEFAULT": 0,
+            "BOOLEAN_UNITE": 1,
+            "BOOLEAN_SUBTRACT": 2,
+            "BOOLEAN_INTERSECT": 3,
+            "ADD_POINT": 4,
+            "REMOVE_POINT": 5,
+            "ALIGN_TO_SELECTION": 6,
+            "ALIGN_TO_DOCUMENT": 7
+          }
+        },
+        "DocHistory": {
+          "fields": {
+            "initial": {
+              "type": "HistoryFrame",
+              "id": 1
+            }
+          }
+        }
+      }
+    }
+  }
+}

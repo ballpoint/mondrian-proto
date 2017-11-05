@@ -10,4 +10,4 @@ $(eval SHA := $(shell git rev-parse HEAD))
 all: proto
 
 proto:
-	protoc --js_out=import_style=commonjs:. history/*.proto
+	node_modules/protobufjs/bin/pbjs -t json */*.proto > proto_schemas.json

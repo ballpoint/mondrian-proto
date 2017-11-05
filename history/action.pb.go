@@ -3,7 +3,7 @@
 // DO NOT EDIT!
 
 /*
-Package ProtobufHistory is a generated protocol buffer package.
+Package history is a generated protocol buffer package.
 
 It is generated from these files:
 	history/action.proto
@@ -23,14 +23,14 @@ It has these top-level messages:
 	HistoryFrame
 	DocHistory
 */
-package ProtobufHistory
+package history
 
 import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
 import index "geometry"
 import posn "geometry"
-import ProtobufHistory1 "geometry"
+import history1 "geometry"
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
@@ -467,7 +467,7 @@ func (m *InsertAction) GetItems() []*InsertAction_ItemIndex {
 }
 
 type InsertAction_ItemIndex struct {
-	Item  *ProtobufHistory1.Item `protobuf:"bytes,1,opt,name=item" json:"item,omitempty"`
+	Item  *history1.Item `protobuf:"bytes,1,opt,name=item" json:"item,omitempty"`
 	Index *index.Index           `protobuf:"bytes,2,opt,name=index" json:"index,omitempty"`
 }
 
@@ -476,7 +476,7 @@ func (m *InsertAction_ItemIndex) String() string            { return proto.Compa
 func (*InsertAction_ItemIndex) ProtoMessage()               {}
 func (*InsertAction_ItemIndex) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{8, 0} }
 
-func (m *InsertAction_ItemIndex) GetItem() *ProtobufHistory1.Item {
+func (m *InsertAction_ItemIndex) GetItem() *history1.Item {
 	if m != nil {
 		return m.Item
 	}
@@ -491,16 +491,16 @@ func (m *InsertAction_ItemIndex) GetIndex() *index.Index {
 }
 
 func init() {
-	proto.RegisterType((*DocAction)(nil), "ProtobufHistory.DocAction")
-	proto.RegisterType((*InitAction)(nil), "ProtobufHistory.InitAction")
-	proto.RegisterType((*NudgeAction)(nil), "ProtobufHistory.NudgeAction")
-	proto.RegisterType((*ScaleAction)(nil), "ProtobufHistory.ScaleAction")
-	proto.RegisterType((*RotateAction)(nil), "ProtobufHistory.RotateAction")
-	proto.RegisterType((*NudgeHandleAction)(nil), "ProtobufHistory.NudgeHandleAction")
-	proto.RegisterType((*AddHandleAction)(nil), "ProtobufHistory.AddHandleAction")
-	proto.RegisterType((*RemoveHandleAction)(nil), "ProtobufHistory.RemoveHandleAction")
-	proto.RegisterType((*InsertAction)(nil), "ProtobufHistory.InsertAction")
-	proto.RegisterType((*InsertAction_ItemIndex)(nil), "ProtobufHistory.InsertAction.ItemIndex")
+	proto.RegisterType((*DocAction)(nil), "history.DocAction")
+	proto.RegisterType((*InitAction)(nil), "history.InitAction")
+	proto.RegisterType((*NudgeAction)(nil), "history.NudgeAction")
+	proto.RegisterType((*ScaleAction)(nil), "history.ScaleAction")
+	proto.RegisterType((*RotateAction)(nil), "history.RotateAction")
+	proto.RegisterType((*NudgeHandleAction)(nil), "history.NudgeHandleAction")
+	proto.RegisterType((*AddHandleAction)(nil), "history.AddHandleAction")
+	proto.RegisterType((*RemoveHandleAction)(nil), "history.RemoveHandleAction")
+	proto.RegisterType((*InsertAction)(nil), "history.InsertAction")
+	proto.RegisterType((*InsertAction_ItemIndex)(nil), "history.InsertAction.ItemIndex")
 }
 
 func init() { proto.RegisterFile("history/action.proto", fileDescriptor0) }
