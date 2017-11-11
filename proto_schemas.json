@@ -2,7 +2,7 @@
   "nested": {
     "document": {
       "nested": {
-        "DocumentStore": {
+        "DocumentBackend": {
           "values": {
             "Unknown": 0,
             "Local": 1
@@ -10,8 +10,8 @@
         },
         "DocumentLocation": {
           "fields": {
-            "store": {
-              "type": "DocumentStore",
+            "backend": {
+              "type": "DocumentBackend",
               "id": 1
             },
             "path": {
@@ -26,22 +26,26 @@
               "type": "string",
               "id": 1
             },
+            "name": {
+              "type": "string",
+              "id": 2
+            },
             "location": {
               "type": "DocumentLocation",
-              "id": 2
+              "id": 3
             },
             "width": {
               "type": "double",
-              "id": 3
+              "id": 4
             },
             "height": {
               "type": "double",
-              "id": 4
+              "id": 5
             },
             "layers": {
               "rule": "repeated",
               "type": "Layer",
-              "id": 5
+              "id": 6
             }
           }
         },
@@ -271,8 +275,19 @@
                 "removeHandleAction",
                 "insertAction",
                 "removeAction",
+                "shiftSegmentAction",
+                "reverseSegmentAction",
+                "closeSegmentAction",
+                "openSegmentAction",
+                "splitPathAction",
+                "unsplitPathAction",
                 "groupAction",
-                "ungroupAction"
+                "ungroupAction",
+                "toggleMetadataBoolAction",
+                "setDocDimensionsAction",
+                "setDocNameAction",
+                "setAttributeAction",
+                "shiftIndexAction"
               ]
             }
           },
@@ -313,13 +328,57 @@
               "type": "RemoveAction",
               "id": 9
             },
+            "shiftSegmentAction": {
+              "type": "ShiftSegmentAction",
+              "id": 10
+            },
+            "reverseSegmentAction": {
+              "type": "ReverseSegmentAction",
+              "id": 11
+            },
+            "closeSegmentAction": {
+              "type": "CloseSegmentAction",
+              "id": 12
+            },
+            "openSegmentAction": {
+              "type": "OpenSegmentAction",
+              "id": 13
+            },
+            "splitPathAction": {
+              "type": "SplitPathAction",
+              "id": 14
+            },
+            "unsplitPathAction": {
+              "type": "UnsplitPathAction",
+              "id": 15
+            },
             "groupAction": {
               "type": "GroupAction",
-              "id": 10
+              "id": 16
             },
             "ungroupAction": {
               "type": "UngroupAction",
-              "id": 11
+              "id": 17
+            },
+            "toggleMetadataBoolAction": {
+              "type": "ToggleMetadataBoolAction",
+              "id": 18
+            },
+            "setDocDimensionsAction": {
+              "type": "SetDocDimensionsAction",
+              "id": 19
+            },
+            "setDocNameAction": {
+              "type": "SetDocNameAction",
+              "id": 20
+            },
+            "setAttributeAction": {
+              "type": "SetAttributeAction",
+              "id": 21
+            },
+            "shiftIndexAction": {
+              "type": "ShiftIndexAction",
+              "id": 22
             }
           }
         },
@@ -486,6 +545,18 @@
             }
           }
         },
+        "ShiftSegmentAction": {
+          "fields": {}
+        },
+        "ReverseSegmentAction": {
+          "fields": {}
+        },
+        "CloseSegmentAction": {
+          "fields": {}
+        },
+        "OpenSegmentAction": {
+          "fields": {}
+        },
         "GroupAction": {
           "fields": {
             "childIndexes": {
@@ -511,6 +582,27 @@
               "id": 2
             }
           }
+        },
+        "SplitPathAction": {
+          "fields": {}
+        },
+        "UnsplitPathAction": {
+          "fields": {}
+        },
+        "ToggleMetadataBoolAction": {
+          "fields": {}
+        },
+        "SetDocDimensionsAction": {
+          "fields": {}
+        },
+        "SetDocNameAction": {
+          "fields": {}
+        },
+        "SetAttributeAction": {
+          "fields": {}
+        },
+        "ShiftIndexAction": {
+          "fields": {}
         },
         "HistoryFrame": {
           "fields": {

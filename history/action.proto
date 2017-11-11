@@ -9,16 +9,34 @@ import "geometry/item.proto";
 message DocAction {
   oneof action {
     InitAction initAction = 1;
+
     NudgeAction nudgeAction = 2;
     ScaleAction scaleAction = 3;
     RotateAction rotateAction = 4;
+
     NudgeHandleAction nudgeHandleAction = 5;
     AddHandleAction addHandleAction = 6;
     RemoveHandleAction removeHandleAction = 7;
+
     InsertAction insertAction = 8;
     RemoveAction removeAction = 9;
-    GroupAction groupAction = 10;
-    UngroupAction ungroupAction = 11;
+
+    ShiftSegmentAction shiftSegmentAction = 10;
+    ReverseSegmentAction reverseSegmentAction = 11;
+    CloseSegmentAction closeSegmentAction = 12;
+    OpenSegmentAction openSegmentAction = 13;
+
+    SplitPathAction splitPathAction = 14;
+    UnsplitPathAction unsplitPathAction = 15;
+
+    GroupAction groupAction = 16;
+    UngroupAction ungroupAction = 17;
+
+    ToggleMetadataBoolAction toggleMetadataBoolAction = 18;
+    SetDocDimensionsAction setDocDimensionsAction = 19;
+    SetDocNameAction setDocNameAction = 20;
+    SetAttributeAction setAttributeAction  = 21;
+    ShiftIndexAction shiftIndexAction = 22;
   }
 }
 
@@ -82,6 +100,17 @@ message RemoveAction {
   repeated ItemIndex items = 1;
 }
 
+
+message ShiftSegmentAction {
+}
+message ReverseSegmentAction {
+}
+message CloseSegmentAction {
+}
+message OpenSegmentAction {
+}
+
+
 message GroupAction {
   repeated Index childIndexes = 1;
   Index groupIndex = 2;
@@ -92,3 +121,19 @@ message UngroupAction {
   Index groupIndex = 2;
 }
 
+
+message SplitPathAction {
+}
+message UnsplitPathAction {
+}
+
+message ToggleMetadataBoolAction {
+}
+message SetDocDimensionsAction {
+}
+message SetDocNameAction {
+}
+message SetAttributeAction {
+}
+message ShiftIndexAction {
+}
