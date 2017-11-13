@@ -3,9 +3,9 @@ syntax = "proto3";
 package geometry;
 
 enum Handle {
-  UNKNOWN = 0;
-  P_HANDLE = 1;
-  S_HANDLE = 2;
+  unknown = 0;
+  pHandle = 1;
+  sHandle = 2;
 }
 
 message Posn {

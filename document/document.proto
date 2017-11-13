@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+import "history/history.proto";
+
 package document;
 
 enum DocumentBackend {
@@ -18,10 +20,11 @@ message Document {
   string name = 2;
 
   DocumentLocation location = 3;
+  DocHistory history = 4;
 
-  double width = 4;
-  double height = 5;
+  double width = 5;
+  double height = 6;
 
-  repeated Layer layers = 6;
+  repeated Layer layers = 7;
 }
 

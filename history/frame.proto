@@ -5,14 +5,9 @@ package history;
 import "history/action.proto";
 
 message HistoryFrame {
-  uint64 depth = 1;
-  int64 timestamp = 2;
-  HistoryFrameLabel label = 3;
-
-  // Linked list
-  repeated HistoryFrame next = 4;
-
-  repeated DocAction actions = 5;
+  repeated DocAction actions = 1;
+  uint64 timestamp = 2;
+  uint64 id = 3;
 }
 
 // We serialize all of the potential frame labels

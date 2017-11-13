@@ -22,4 +22,3 @@ message TextItem {
 message GroupItem {
   repeated Item children = 1;
 }
-

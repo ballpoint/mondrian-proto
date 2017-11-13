@@ -5,6 +5,8 @@ package history;
 import "geometry/index.proto";
 import "geometry/posn.proto";
 import "geometry/item.proto";
+import "geometry/item.proto";
+import "doc/attrs.proto";
 
 message DocAction {
   oneof action {
@@ -65,49 +67,55 @@ message RotateAction {
 }
 
 message NudgeHandleAction {
-  repeated Index indexes = 1;
+  Index index = 1;
   double xd = 2;
   double yd = 3;
   Handle handle = 4;
 }
 
 message AddHandleAction {
-  repeated Index indexes = 1;
+  Index index = 1;
   Handle handle = 2;
   Posn posn = 3;
   bool reflect = 4;
 }
 
 message RemoveHandleAction {
-  repeated Index indexes = 1;
+  Index index = 1;
   Handle handle = 2;
   bool reflect = 3;
 }
 
+// wrapper message used in InsertAction and RemoveAction
+message ItemIndex {
+  Item item = 1;
+  Index index = 2;
+}
+
 message InsertAction {
-  message ItemIndex {
-    Item item = 1;
-    Index index = 2;
-  }
   repeated ItemIndex items = 1;
 }
 
 message RemoveAction {
-  message ItemIndex {
-    Item item = 1;
-    Index index = 2;
-  }
   repeated ItemIndex items = 1;
 }
 
 
 message ShiftSegmentAction {
+  Index index = 1;
+  int32 n = 2;
 }
+
 message ReverseSegmentAction {
+  Index index = 1;
 }
+
 message CloseSegmentAction {
+  Index index = 1;
 }
+
 message OpenSegmentAction {
+  Index index = 1;
 }
 
 
@@ -123,17 +131,45 @@ message UngroupAction {
 
 
 message SplitPathAction {
+  Index index = 1;
 }
+
 message UnsplitPathAction {
+  Index index = 1;
 }
 
 message ToggleMetadataBoolAction {
+  repeated Index indexes = 1;
+  string key = 2;
 }
+
 message SetDocDimensionsAction {
+  uint32 width = 1;
+  uint32 height = 2;
+  uint32 prevWidth = 3;
+  uint32 prevHeight = 4;
 }
+
 message SetDocNameAction {
+  string name = 1;
+  string prevName = 2;
 }
+
 message SetAttributeAction {
+  string key = 1;
+  
+  message NewItemValue {
+    Index index = 1;
+    AttributeValue value = 2;
+    AttributeValue oldValue = 3;
+  }
+
+  repeated NewItemValue items = 2;
 }
+
 message ShiftIndexAction {
+  message ItemIndexDelta {
+    Index index = 1;
+    int32 delta = 2;
+  }
 }

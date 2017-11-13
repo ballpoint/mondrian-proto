@@ -2,6 +2,36 @@
   "nested": {
     "document": {
       "nested": {
+        "AttributeValue": {
+          "oneofs": {
+            "value": {
+              "oneof": [
+                "stringValue",
+                "intValue",
+                "floatValue",
+                "colorValue"
+              ]
+            }
+          },
+          "fields": {
+            "stringValue": {
+              "type": "string",
+              "id": 1
+            },
+            "intValue": {
+              "type": "int64",
+              "id": 2
+            },
+            "floatValue": {
+              "type": "double",
+              "id": 3
+            },
+            "colorValue": {
+              "type": "Color",
+              "id": 4
+            }
+          }
+        },
         "DocumentBackend": {
           "values": {
             "Unknown": 0,
@@ -34,18 +64,22 @@
               "type": "DocumentLocation",
               "id": 3
             },
+            "history": {
+              "type": "DocHistory",
+              "id": 4
+            },
             "width": {
               "type": "double",
-              "id": 4
+              "id": 5
             },
             "height": {
               "type": "double",
-              "id": 5
+              "id": 6
             },
             "layers": {
               "rule": "repeated",
               "type": "Layer",
-              "id": 6
+              "id": 7
             }
           }
         },
@@ -192,29 +226,14 @@
     },
     "geometry": {
       "nested": {
-        "Item": {
-          "oneofs": {
-            "item": {
-              "oneof": [
-                "path"
-              ]
-            }
-          },
-          "fields": {
-            "path": {
-              "type": "Path",
-              "id": 1
-            }
-          }
-        },
         "Path": {
           "fields": {}
         },
         "Handle": {
           "values": {
-            "UNKNOWN": 0,
-            "P_HANDLE": 1,
-            "S_HANDLE": 2
+            "unknown": 0,
+            "pHandle": 1,
+            "sHandle": 2
           }
         },
         "Posn": {
@@ -442,8 +461,7 @@
         },
         "NudgeHandleAction": {
           "fields": {
-            "indexes": {
-              "rule": "repeated",
+            "index": {
               "type": "Index",
               "id": 1
             },
@@ -463,8 +481,7 @@
         },
         "AddHandleAction": {
           "fields": {
-            "indexes": {
-              "rule": "repeated",
+            "index": {
               "type": "Index",
               "id": 1
             },
@@ -484,8 +501,7 @@
         },
         "RemoveHandleAction": {
           "fields": {
-            "indexes": {
-              "rule": "repeated",
+            "index": {
               "type": "Index",
               "id": 1
             },
@@ -499,26 +515,24 @@
             }
           }
         },
+        "ItemIndex": {
+          "fields": {
+            "item": {
+              "type": "Item",
+              "id": 1
+            },
+            "index": {
+              "type": "Index",
+              "id": 2
+            }
+          }
+        },
         "InsertAction": {
           "fields": {
             "items": {
               "rule": "repeated",
               "type": "ItemIndex",
               "id": 1
-            }
-          },
-          "nested": {
-            "ItemIndex": {
-              "fields": {
-                "item": {
-                  "type": "Item",
-                  "id": 1
-                },
-                "index": {
-                  "type": "Index",
-                  "id": 2
-                }
-              }
             }
           }
         },
@@ -529,33 +543,43 @@
               "type": "ItemIndex",
               "id": 1
             }
-          },
-          "nested": {
-            "ItemIndex": {
-              "fields": {
-                "item": {
-                  "type": "Item",
-                  "id": 1
-                },
-                "index": {
-                  "type": "Index",
-                  "id": 2
-                }
-              }
-            }
           }
         },
         "ShiftSegmentAction": {
-          "fields": {}
+          "fields": {
+            "index": {
+              "type": "Index",
+              "id": 1
+            },
+            "n": {
+              "type": "int32",
+              "id": 2
+            }
+          }
         },
         "ReverseSegmentAction": {
-          "fields": {}
+          "fields": {
+            "index": {
+              "type": "Index",
+              "id": 1
+            }
+          }
         },
         "CloseSegmentAction": {
-          "fields": {}
+          "fields": {
+            "index": {
+              "type": "Index",
+              "id": 1
+            }
+          }
         },
         "OpenSegmentAction": {
-          "fields": {}
+          "fields": {
+            "index": {
+              "type": "Index",
+              "id": 1
+            }
+          }
         },
         "GroupAction": {
           "fields": {
@@ -584,49 +608,128 @@
           }
         },
         "SplitPathAction": {
-          "fields": {}
+          "fields": {
+            "index": {
+              "type": "Index",
+              "id": 1
+            }
+          }
         },
         "UnsplitPathAction": {
-          "fields": {}
+          "fields": {
+            "index": {
+              "type": "Index",
+              "id": 1
+            }
+          }
         },
         "ToggleMetadataBoolAction": {
-          "fields": {}
+          "fields": {
+            "indexes": {
+              "rule": "repeated",
+              "type": "Index",
+              "id": 1
+            },
+            "key": {
+              "type": "string",
+              "id": 2
+            }
+          }
         },
         "SetDocDimensionsAction": {
-          "fields": {}
+          "fields": {
+            "width": {
+              "type": "uint32",
+              "id": 1
+            },
+            "height": {
+              "type": "uint32",
+              "id": 2
+            },
+            "prevWidth": {
+              "type": "uint32",
+              "id": 3
+            },
+            "prevHeight": {
+              "type": "uint32",
+              "id": 4
+            }
+          }
         },
         "SetDocNameAction": {
-          "fields": {}
+          "fields": {
+            "name": {
+              "type": "string",
+              "id": 1
+            },
+            "prevName": {
+              "type": "string",
+              "id": 2
+            }
+          }
         },
         "SetAttributeAction": {
-          "fields": {}
+          "fields": {
+            "key": {
+              "type": "string",
+              "id": 1
+            },
+            "items": {
+              "rule": "repeated",
+              "type": "NewItemValue",
+              "id": 2
+            }
+          },
+          "nested": {
+            "NewItemValue": {
+              "fields": {
+                "index": {
+                  "type": "Index",
+                  "id": 1
+                },
+                "value": {
+                  "type": "AttributeValue",
+                  "id": 2
+                },
+                "oldValue": {
+                  "type": "AttributeValue",
+                  "id": 3
+                }
+              }
+            }
+          }
         },
         "ShiftIndexAction": {
-          "fields": {}
+          "fields": {},
+          "nested": {
+            "ItemIndexDelta": {
+              "fields": {
+                "index": {
+                  "type": "Index",
+                  "id": 1
+                },
+                "delta": {
+                  "type": "int32",
+                  "id": 2
+                }
+              }
+            }
+          }
         },
         "HistoryFrame": {
           "fields": {
-            "depth": {
-              "type": "uint64",
-              "id": 1
-            },
-            "timestamp": {
-              "type": "int64",
-              "id": 2
-            },
-            "label": {
-              "type": "HistoryFrameLabel",
-              "id": 3
-            },
-            "next": {
-              "rule": "repeated",
-              "type": "HistoryFrame",
-              "id": 4
-            },
             "actions": {
               "rule": "repeated",
               "type": "DocAction",
-              "id": 5
+              "id": 1
+            },
+            "timestamp": {
+              "type": "uint64",
+              "id": 2
+            },
+            "id": {
+              "type": "uint64",
+              "id": 3
             }
           }
         },
@@ -644,9 +747,14 @@
         },
         "DocHistory": {
           "fields": {
-            "initial": {
+            "frames": {
+              "rule": "repeated",
               "type": "HistoryFrame",
               "id": 1
+            },
+            "currentIndex": {
+              "type": "uint32",
+              "id": 2
             }
           }
         }
