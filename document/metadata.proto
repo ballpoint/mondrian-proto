@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package document;
+
+message MetadataAttrs {
+  bool visible = 1;
+  bool locked = 2;
+  int32 angle = 3;
+}
