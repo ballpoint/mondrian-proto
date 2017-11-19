@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+import "geometry/posn.proto";
+
+package editor;
+
+message Clipboard {
+  repeated Item items = 1;
+}

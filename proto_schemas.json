@@ -257,6 +257,19 @@
         }
       }
     },
+    "editor": {
+      "nested": {
+        "Clipboard": {
+          "fields": {
+            "items": {
+              "rule": "repeated",
+              "type": "Item",
+              "id": 1
+            }
+          }
+        }
+      }
+    },
     "geometry": {
       "nested": {
         "Handle": {
