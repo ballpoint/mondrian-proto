@@ -98,7 +98,8 @@
               "oneof": [
                 "pathItem",
                 "textItem",
-                "groupItem"
+                "groupItem",
+                "pathPoint"
               ]
             }
           },
@@ -114,6 +115,10 @@
             "groupItem": {
               "type": "GroupItem",
               "id": 3
+            },
+            "pathPoint": {
+              "type": "PathPoint",
+              "id": 4
             }
           }
         },
@@ -123,10 +128,14 @@
               "type": "StyleAttrs",
               "id": 1
             },
+            "metadata": {
+              "type": "MetadataAttrs",
+              "id": 2
+            },
             "points": {
               "rule": "repeated",
               "type": "PointsSegment",
-              "id": 2
+              "id": 3
             }
           }
         },
@@ -135,15 +144,23 @@
             "style": {
               "type": "StyleAttrs",
               "id": 1
+            },
+            "metadata": {
+              "type": "MetadataAttrs",
+              "id": 2
             }
           }
         },
         "GroupItem": {
           "fields": {
+            "metadata": {
+              "type": "MetadataAttrs",
+              "id": 1
+            },
             "children": {
               "rule": "repeated",
               "type": "Item",
-              "id": 1
+              "id": 2
             }
           }
         },
@@ -157,6 +174,22 @@
               "rule": "repeated",
               "type": "Item",
               "id": 2
+            }
+          }
+        },
+        "MetadataAttrs": {
+          "fields": {
+            "visible": {
+              "type": "bool",
+              "id": 1
+            },
+            "locked": {
+              "type": "bool",
+              "id": 2
+            },
+            "angle": {
+              "type": "int32",
+              "id": 3
             }
           }
         },
@@ -226,9 +259,6 @@
     },
     "geometry": {
       "nested": {
-        "Path": {
-          "fields": {}
-        },
         "Handle": {
           "values": {
             "unknown": 0,
@@ -428,11 +458,11 @@
               "type": "Index",
               "id": 1
             },
-            "xs": {
+            "x": {
               "type": "double",
               "id": 2
             },
-            "ys": {
+            "y": {
               "type": "double",
               "id": 3
             },
@@ -609,7 +639,7 @@
         },
         "SplitPathAction": {
           "fields": {
-            "index": {
+            "splitIndex": {
               "type": "Index",
               "id": 1
             }
@@ -617,7 +647,7 @@
         },
         "UnsplitPathAction": {
           "fields": {
-            "index": {
+            "splitIndex": {
               "type": "Index",
               "id": 1
             }
@@ -700,7 +730,13 @@
           }
         },
         "ShiftIndexAction": {
-          "fields": {},
+          "fields": {
+            "items": {
+              "rule": "repeated",
+              "type": "ItemIndexDelta",
+              "id": 1
+            }
+          },
           "nested": {
             "ItemIndexDelta": {
               "fields": {

@@ -1,24 +1,32 @@
 syntax = "proto3";
 
+import "geometry/posn.proto";
+
 package document;
 
 message Item {
   oneof item {
+    // High level
     PathItem pathItem = 1;
     TextItem textItem = 2;
     GroupItem groupItem = 3;
+    // Low level
+    PathPoint pathPoint = 4;
   }
 }
 
 message PathItem {
   StyleAttrs style = 1;
-  repeated PointsSegment points = 2;
+  MetadataAttrs metadata = 2;
+  repeated PointsSegment points = 3;
 }
 
 message TextItem {
   StyleAttrs style = 1;
+  MetadataAttrs metadata = 2;
 }
 
 message GroupItem {
-  repeated Item children = 1;
+  MetadataAttrs metadata = 1;
+  repeated Item children = 2;
 }

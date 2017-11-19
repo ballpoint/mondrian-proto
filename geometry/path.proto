@@ -1,9 +1,0 @@
-syntax = "proto3";
-
-package geometry;
-
-import "geometry/index.proto";
-import "geometry/posn.proto";
-
-message Path {
-}

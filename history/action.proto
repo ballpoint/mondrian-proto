@@ -55,8 +55,8 @@ message NudgeAction {
 
 message ScaleAction {
   repeated Index indexes = 1;
-  double xs = 2;
-  double ys = 3;
+  double x = 2;
+  double y = 3;
   Posn origin = 4;
 }
 
@@ -131,11 +131,11 @@ message UngroupAction {
 
 
 message SplitPathAction {
-  Index index = 1;
+  Index splitIndex = 1;
 }
 
 message UnsplitPathAction {
-  Index index = 1;
+  Index splitIndex = 1;
 }
 
 message ToggleMetadataBoolAction {
@@ -172,4 +172,6 @@ message ShiftIndexAction {
     Index index = 1;
     int32 delta = 2;
   }
+
+  repeated ItemIndexDelta items = 1;
 }
