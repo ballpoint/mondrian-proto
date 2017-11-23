@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+import "geometry/posn.proto";
+
+package document;
+
+enum TextAlignHorizonal {
+  left   = 0;
+  center = 1;
+  right  = 2;
+}
+
+enum TextAlignVertical {
+  top    = 0;
+  center = 1;
+  bottom = 2;
+}
+
+message TextItem {
+  StyleAttrs style = 1;
+  MetadataAttrs metadata = 2;
+
+  message TextItemAttrs {
+    Posn origin = 1;
+    string value = 2;
+    double width = 3;
+    double height = 4;
+    double lineHeight = 5;
+    uint64 fontSize = 6;
+
+    TextAlignHorizonal alignHorizontal = 7;
+    TextAlignVertical alignVertical = 8;
+  }
+
+  TextItemAttrs attrs = 4;
+}
+
+

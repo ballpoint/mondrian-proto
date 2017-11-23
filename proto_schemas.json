@@ -139,18 +139,6 @@
             }
           }
         },
-        "TextItem": {
-          "fields": {
-            "style": {
-              "type": "StyleAttrs",
-              "id": 1
-            },
-            "metadata": {
-              "type": "MetadataAttrs",
-              "id": 2
-            }
-          }
-        },
         "GroupItem": {
           "fields": {
             "metadata": {
@@ -252,6 +240,74 @@
             "opacity": {
               "type": "double",
               "id": 5
+            }
+          }
+        },
+        "TextAlignHorizonal": {
+          "values": {
+            "left": 0,
+            "center": 1,
+            "right": 2
+          }
+        },
+        "TextAlignVertical": {
+          "values": {
+            "top": 0,
+            "center": 1,
+            "bottom": 2
+          }
+        },
+        "TextItem": {
+          "fields": {
+            "style": {
+              "type": "StyleAttrs",
+              "id": 1
+            },
+            "metadata": {
+              "type": "MetadataAttrs",
+              "id": 2
+            },
+            "attrs": {
+              "type": "TextItemAttrs",
+              "id": 4
+            }
+          },
+          "nested": {
+            "TextItemAttrs": {
+              "fields": {
+                "origin": {
+                  "type": "Posn",
+                  "id": 1
+                },
+                "value": {
+                  "type": "string",
+                  "id": 2
+                },
+                "width": {
+                  "type": "double",
+                  "id": 3
+                },
+                "height": {
+                  "type": "double",
+                  "id": 4
+                },
+                "lineHeight": {
+                  "type": "double",
+                  "id": 5
+                },
+                "fontSize": {
+                  "type": "uint64",
+                  "id": 6
+                },
+                "alignHorizontal": {
+                  "type": "TextAlignHorizonal",
+                  "id": 7
+                },
+                "alignVertical": {
+                  "type": "TextAlignVertical",
+                  "id": 8
+                }
+              }
             }
           }
         }

@@ -21,11 +21,6 @@ message PathItem {
   repeated PointsSegment points = 3;
 }
 
-message TextItem {
-  StyleAttrs style = 1;
-  MetadataAttrs metadata = 2;
-}
-
 message GroupItem {
   MetadataAttrs metadata = 1;
   repeated Item children = 2;
