@@ -4,7 +4,7 @@ package history;
 
 import "history/frame.proto";
 
-message DocHistory {
+message DocumentHistory {
   repeated HistoryFrame frames = 1;
   uint32 currentIndex = 2;
 }

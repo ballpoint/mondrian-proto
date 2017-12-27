@@ -10,3 +10,8 @@ message AttributeValue {
     Color colorValue = 4;
   }
 }
+
+message Attribute {
+  string key = 1;
+  AttributeValue value = 2;
+}

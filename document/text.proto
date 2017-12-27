@@ -27,9 +27,10 @@ message TextItem {
     double height = 4;
     double lineHeight = 5;
     uint64 fontSize = 6;
+    string fontFamily = 7;
 
-    TextAlignHorizonal alignHorizontal = 7;
-    TextAlignVertical alignVertical = 8;
+    TextAlignHorizonal alignHorizontal = 8;
+    TextAlignVertical alignVertical = 9;
   }
 
   TextItemAttrs attrs = 4;

@@ -29,6 +29,7 @@ message StyleAttrs {
 
   StrokeLineCap strokeLineCap = 3;
   StrokeLineJoin strokeLineJoin = 4;
+  double strokeWidth = 6;
 
   double opacity = 5;
 }

@@ -20,11 +20,12 @@ message Document {
   string name = 2;
 
   DocumentLocation location = 3;
-  DocHistory history = 4;
+  DocumentHistory history = 4;
 
   double width = 5;
   double height = 6;
 
   repeated Layer layers = 7;
+
 }
 
