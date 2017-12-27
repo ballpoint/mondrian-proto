@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+import "geometry/posn.proto";
+import "geometry/index.proto";
+
+package editor;
+
+enum Tool {
+  unknown = 0;
+  cursor = 1;
+  subcursor = 2;
+  zoom = 3;
+  pen = 4;
+  rect = 5;
+  ellipse = 6;
+  paw = 7;
+  type = 8;
+  eyedropper = 9;
+}
+
+message EditorState {
+  Posn position = 1; // Position in document at center of viewport
+  Index layer = 2; // Current layer
+  double zoomLevel = 3;
+
+  repeated Index selection = 4;
+  Index scope = 5;
+
+  Tool tool = 6;
+  repeated Attribute defaultAttributes = 7;
+}
